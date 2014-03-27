@@ -1,0 +1,5 @@
+@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
+    input[name=acoeffans]  { width: 24px }
+    input[name=medium] { width: 38px } 
+    input[name=long]   { width: 52px } 
+}
