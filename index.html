@@ -24,35 +24,23 @@
 
 	<body>
 
-		<!--
-
-		give option to insert quadratic or randomly generate
-		also give solve option for each step
-
-		Methods
-		1using quad formula
-		2factoring
-		3taking squareroot when b is 0
-		4diff of 2 squares same as above??
-
-		-->
-		<div data-role="page" id="mainPage" align="center">
+		<div data-role="page" id="mainPage" align="center" style="background-image: url('images/math.png'); background-attachment: fixed; background-repeat: no-repeat; background-size: 100% 100%;">
 
 			<div data-role="content">
-				<a href="#newDialog" data-role="button" data-rel="dialog">New Equation</a>
 
 				<div id="equation" style="display:none">
-					<font size="5px" color="red"><span id="myDiva"></span></font></p>
-					<fieldset class="ui-field-contain">
-						<label for="method">Select Method</label>
+
+					<div data-role="fieldcontain">						
+						<label for="method"><font size="5px" >Select Method</font></label>
 						<select name="method" id="method"  data-native-menu="false">
 							<option value="quadformula">Using Quadratic Formula</option>
 							<option value="factoring">Solve By Factoring</option>
 							<option value="squares">Difference of 2 Squares</option>
 						</select>
-					</fieldset>
+					</div>
 
-					<div id="quadformula" >
+					<font size="5px" color="red"><span id="myDiva"></span></font></p>
+					<div id="quadformula" style="border:2px solid;background-image: url('images/math_plain.png')" >
 
 						<div style="border:2px solid;border-radius:25px;" >
 							<br/>
@@ -87,25 +75,9 @@
 										</div>
 									</div>
 									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkformula1()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula1()"  type='button'>
-												Hint
-											</button>
-										</div>
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula()"  type='button'>
-												Solve
-											</button>
-										</div>
-									</div>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula1()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkformula1()">Submit</a>
 
 								</div>
 								<div  id="quadformula2container" style="display:none" >
@@ -113,6 +85,8 @@
 									STEP2: Consider $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
 									<br/>
 									Find: $-b,\,b^2,\,4ac,$ and $\,2a$
+									<br/>
+									<br/>
 									<div  id="quadformula2a" style="display: table-row" >
 										<div style="display: table-cell;" >
 											$\implies-b=$
@@ -147,32 +121,20 @@
 
 									</div>
 									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkformula2()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula2()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkformula2()">Submit</a>
 
-											<button  onclick="solvequadformula2()"  type='button'>
-												Hint
-											</button>
-										</div>
-
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula()"  type='button'>
-												Solve
-											</button>
-										</div>
-									</div>
 								</div> <div ></div>
 								<div  id="quadformula3container" style="display:none" >
-									STEP2 (cont'd): Plug in the values for $b^2$ and $4ac$ into $b^2-4ac$
+									STEP3: Plug in the values for $b^2$ and $4ac$ into $b^2-4ac$
+									<br/>
+									<br/>
+											$\implies b^2-4ac=$
+									<br/>
 									<div  id="quadformula3" style="display: table-row" >
 										<div  style="display: table-cell;" >
-											$\implies b^2-4ac=$
+											<span id="quadformula3help"></span>
 										</div>
 										<div style="width:80px ;display: table-cell;" >
 											<input maxlength="8" size="6" type="number"  id="bsqrmfac" >
@@ -180,32 +142,19 @@
 
 									</div>
 									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkformula3()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula3()"  type='button'>
-												Hint
-											</button>
-										</div>
-
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula()"  type='button'>
-												Solve
-											</button>
-										</div>
-									</div>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula3()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkformula3()">Submit</a>
 								</div> <div ></div>
 								<div  id="quadformula4container" style="display:none" >
-									STEP2 (cont'd): Find $\sqrt{b^2-4ac}$
+									STEP4: Find $\sqrt{b^2-4ac}$
+									<br/>
+									<br/>
+											$\implies \sqrt{b^2-4ac}=$
+									<br/>
 									<div  id="quadformula4" style="display: table-row" >
 										<div  style="display: table-cell;" >
-											$\implies \sqrt{b^2-4ac}=$
+											<span id="quadformula4help"></span>
 										</div>
 										<div style="width:80px ;display: table-cell;" >
 											<input maxlength="8" size="6" type="number"  id="sqrtbsqrfac" >
@@ -213,33 +162,19 @@
 
 									</div>
 									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkformula4()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula4()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkformula4()">Submit</a>
 
-											<button  onclick="solvequadformula4()"  type='button'>
-												Hint
-											</button>
-										</div>
-
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula()"  type='button'>
-												Solve
-											</button>
-										</div>
-									</div>
 								</div> <div ></div>
 								<div  id="quadformula5container" style="display:none" >
-									STEP3: Plug in answers into quadratic formula $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$
-									<div  id="quadformula5" style="display: table-row" >
-										<div  style="display: table-cell;" >
+									STEP5: Plug in answers into quadratic formula $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$
+									<br/>
+									<br/>
 											$\implies  \frac{-b \pm \sqrt{b^2-4ac}}{2a} = $
-										</div>
+									<br/>
+									<span id="quadformula5help"></span>
+									<div  id="quadformula5" style="display: table-row" >
 										<div style="width:80px ;display: table-cell;" >
 											<input maxlength="8" size="6" type="number"  id="ans1" >
 										</div>
@@ -252,42 +187,24 @@
 
 									</div>
 									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkformula5()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvequadformula5()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkformula5()">Submit</a>
 
-											<button  onclick="solvequadformula5()"  type='button'>
-												Hint
-											</button>
-										</div>
-
-										<div style="display: table-cell;" >
-
-											<button  onclick="solvequadformula()"  type='button'>
-												Solve
-											</button>
-										</div>
-									</div>
 								</div> </span></font>
 					</div>
 
-					<div id="factoring" style="display:none">
-<<<<<<< HEAD
-
-=======
-						
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
-								<div style="border:2px solid;border-radius:25px;" >
-									<br/>
-									<font size="5px" color="red"><span id="factoringAns"></span></font></p>
-								</div> </span></font>
-						<font size="5px"><span >
+					<div id="factoring" style="display:none;border:2px solid;background-image: url('images/math_plain.png')">
+						<div style="border:2px solid;border-radius:25px;" >
+							<br/>
+							<font size="5px" color="red"><span id="factoringAns"></span></font></p>
+						</div>
+						</span></font> 
 								<div  id="factoring1container"  >
 									STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
+									<br/>
+									<br/>
+									<br/>
 									<div  id="factoring1" style="display: table-row" >
 
 										<div style="width:80px ;display: table-cell;" >
@@ -321,24 +238,16 @@
 
 									</div>
 									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkfactoring1()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring1()">Submit</a>
 
-											<button  onclick="solvefactoring1()"  type='button'>
-												Hint/Skip
-											</button>
-										</div>
-									</div>
 								</div>
 								<div  id="factoring2container"  style="display: none">
 									STEP2: Factor the simplified quadratic equation
+									<br/>
+									<br/>
 									<div  id="factoring2" style="display: table-row" >
-<<<<<<< HEAD
 
 										<span id="gcf2"></span>
 										<div  style="display: table-cell;" >
@@ -369,38 +278,6 @@
 											<input maxlength="4" size="4" type="number"  id="faca2" >
 										</div>
 
-=======
-										
-										<span id="gcf2"></span>
-										<div  style="display: table-cell;" >
-											$($
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="faca1" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x$
-										</div>
-										<div  style="display: table-cell;" >
-											<select>
-												<option value="plus">+</option>
-												<option value="minus">-</option>
-											</select>
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="facc1" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$)($
-										</div>
-
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="faca2" >
-										</div>
-
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
 										<div  style="display: table-cell;" >
 											$x$
 										</div>
@@ -419,20 +296,43 @@
 										</div>
 									</div>
 									<div></div>
-									<div></div>
-									<div  style="display: table-row" >
-										<div  style="display: table-cell;" >
-											<button  onclick="checkfactoring2()"  type='button'>
-												Submit
-											</button>
-										</div>
-										<div style="display: table-cell;" >
 
-											<button  onclick="solvefactoring2()"  type='button'>
-												Hint
-											</button>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint2</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
+								</div>
+								<div  id="factoring3container"  style="display: none">
+									STEP3: Find x
+									<br/>
+									<br/>
+									<div  id="factoring3a" style="display: table-row" >
+
+										<span id="factoringsln1"></span>
+										<div  style="display: table-cell;" >
+											$\implies x = $
 										</div>
+										<div style="width:80px ;display: table-cell;" >
+											<input maxlength="4" size="4" type="number"  id="factoringx1" >
+										</div>
+
 									</div>
+									<div></div>
+									<div  id="factoring3b" style="display: table-row" >
+
+										<span id="factoringsln2"></span>
+										<div  style="display: table-cell;" >
+											$\implies x = $
+										</div>
+										<div  style="display: table-cell;" >
+											<input maxlength="4" size="4" type="number"  id="factoringx2" >
+										</div>
+
+									</div>
+									<div></div>
+
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint2</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
 								</div>
 					</div>
 
@@ -443,12 +343,15 @@
 					</div>
 
 					<br/>
-					<div id="canvascontain" align="center" style="display:none">
+					<div id="canvascontain" align="center" style="background-image: url('images/math_plain.png'); display:none">
 						<canvas id="canvas2" width="500" height="500" style="border:solid 1px #0000ff">
 
 						</canvas>
 					</div>
+					
 				</div>
+				
+				<a href="#newDialog" data-role="button" data-theme="b" data-rel="dialog">New Equation</a>
 			</div>
 		</div>
 
