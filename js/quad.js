@@ -48,6 +48,10 @@ var quadformulasln1;
 var quadformulasln2;
 var quadformulapartial;
 var factoringpartial;
+var lhs1;
+var lhs2;
+var rhs1;
+var rhs2;
 var gcf;
 var factorspartial = "";
 
@@ -268,6 +272,9 @@ function solvequadformula2() {
 	quadformulapartial += '<br\><br\> <font size="5px" color="red">Step 2 (Consider $\\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}$) </font><br\>$ -b=-('+b+ ')=' + -b + ',$ <br\>  $\\; b^2=('+b+')^2=' + bsqr + ',$ <br\>  $4ac= (4)('+a+')('+c+')=' + fac + ',$ <br\>  $2a=(2)('+a+')=' + ta + '$';
 	document.getElementById('quadFormulaAns').innerHTML = quadformulapartial;
 	MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+	
+		document.getElementById('quadformula3help').innerHTML = '$='+ bsqr + '-'+ fac +'= $';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	if (document.body.scrollHeight) { 
   	window.scrollTo(0 , document.body.scrollHeight); 
 } 
@@ -284,9 +291,18 @@ function checkformula3() {
 function solvequadformula3() {
 
 	$('#bsqrmfac').val(bsqrmfac);
-	$('#quadformula4container').show();
 	$('#quadformula3container').hide();
-	quadformulapartial += '<br\><br\> <font size="5px" color="red">Step 2 (cont\'d)</font><br\>$b^2 - 4ac$<br\>$='+ bsqr + '-'+fac + '=' + bsqrmfac + '$';
+	if(bsqrmfac>=0){
+	$('#quadformula4container').show();
+	quadformulapartial += '<br\><br\> <font size="5px" color="red">Step 3</font><br\>$b^2 - 4ac$<br\>$='+ bsqr + '-'+fac + '=' + bsqrmfac + '$';
+
+		document.getElementById('quadformula4help').innerHTML = '$=\\sqrt{'+bsqrmfac+'} = $';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+	}
+	else{
+	quadformulapartial += '<br\><br\> <font size="5px" color="red">Step 3</font><br\>$b^2 - 4ac$<br\>$='+ bsqr + '-'+fac + '=' + bsqrmfac + '$<br\>$ \\implies$ No Real Roots';
+		
+	}	
 	document.getElementById('quadFormulaAns').innerHTML = quadformulapartial;
 	MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	if (document.body.scrollHeight) { 
@@ -307,8 +323,11 @@ function solvequadformula4() {
 		$('#sqrtbsqrfac').val(sqrtbsqrfac);
 		$('#quadformula5container').show();
 		$('#quadformula4container').hide();
-		quadformulapartial += '<br\><br\><font size="5px" color="red">Step 2 (cont\'d) </font><br\>$ \\sqrt{b^2 - 4ac}$<br\>$='+b+ '^2 - (4)('+a+')('+c+')=' + sqrtbsqrfac + '$';
+		quadformulapartial += '<br\><br\><font size="5px" color="red">Step 4 </font><br\>$ \\sqrt{b^2 - 4ac}$<br\>$='+b+ '^2 - (4)('+a+')('+c+')$<br\>$=' + sqrtbsqrfac + '$<br\>';
 		document.getElementById('quadFormulaAns').innerHTML = quadformulapartial;
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+		
+		document.getElementById('quadformula5help').innerHTML = '$\\frac{'+-b+' \\pm '+sqrtbsqrfac+'}{'+ta+'}$';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 		if (document.body.scrollHeight) { 
 	  window.scrollTo(0 , document.body.scrollHeight); 
@@ -329,21 +348,15 @@ function checkformula5() {
 
 function solvequadformula5() {
 
-	if(bsqrmfac<0)
-	quadformulapartial += '<br\> $\\implies$ no real roots' ;
-	else{
+	if(bsqrmfac>=0){
 	$('#ans1').val();
 	$('#ans2').val(Math.round(quadformulasln2 * 100) / 100);
 	$('#quadformula5container').hide();
 	if(quadformulasln1!=quadformulasln2)
-	quadformulapartial += '<br\><br\><font size="5px" color="red">Step 3 </font><br\> $\\implies  \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} = \\frac{'+-b+' \\pm '+sqrtbsqrfac+'}{'+ta+'} $<br\><br\>  $x=' + quadformulasln1 + '\\, or\\, x=' + quadformulasln2 + '$';
+	quadformulapartial += '<br\><br\><font size="5px" color="red">Step 5 </font><br\> $\\implies  \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} $<br\>$= \\frac{'+-b+' \\pm '+sqrtbsqrfac+'}{'+ta+'} $<br\><br\>  $x=' + quadformulasln1 + '\\, or\\, x=' + quadformulasln2 + '$';
 	else
 	quadformulapartial += '<br\> $\\implies  \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} =$' + quadformulasln1;
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
 	}
 	document.getElementById('quadFormulaAns').innerHTML = quadformulapartial;
 	MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
@@ -390,23 +403,13 @@ function solvefactoring1() {
 		document.getElementById('gcf2').innerHTML = '';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	} else {
-		factoringpartial = 's<font size="5px" color="red">Step 1 </font><br\>' +stringOut + '<br\> $\\implies (' + gcf + ')($' + stringOut2 + '$)$';
-<<<<<<< HEAD
+		factoringpartial = '<font size="5px" color="red">Step 1 </font><br\>' +stringOut + '<br\> $\\implies (' + gcf + ')($' + stringOut2 + '$) = 0$';
 
-=======
-		
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
 		document.getElementById('gcf2').innerHTML = '$('+gcf+')$';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 		document.getElementById('factoringAns').innerHTML = factoringpartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-<<<<<<< HEAD
-
-=======
-		
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
 	}
-
 }
 
 
@@ -427,99 +430,74 @@ function checkfactoring2() {
 	} else {
 		alert("wrong");
 	}
-<<<<<<< HEAD
+
 }
-
-
-// rem to hide  $('#gcfcontain').show();
 
 function solvefactoring2() {
 	$('#factoring3container').show();
 	$('#factoring2container').hide();
 
-
 	$.each(getFactors(Math.abs(a/gcf)), function() {
 		var afactors = this;
 		$.each(getFactors(Math.abs(c/gcf)), function() {
 			var cfactors = this;
-
-//do this
-
-
-
-			//4 cases -> 	1: both +, 		2: both -, 		3 :b+ and c-, 		4: b- and c +
-			if (b >= 0 && c >= 0) {
-				factorspartial += " (" + afactors[0] + " + " + cfactors[0] + ")(" + afactors[1] + " + " + cfactors[1] + ")\n";
-			} else if (b < 0 && c < 0) {
-				factorspartial += " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
-			} else if ((b < 0 && c >= 0) || (b >= 0 && c < 0)) {
-				factorspartial += " (" + afactors[0] + " + " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
-				factorspartial += " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " + " + cfactors[1] + ")\n";
+			//x2+x+k => (x+c)(x+d)
+			if (b/gcf >= 0 && c/gcf >= 0) {
+				if((afactors[0]*cfactors[1]) + (afactors[1]*cfactors[0])==b/gcf )
+				{
+					lhs1 = afactors[0];
+					lhs2 = afactors[1];
+					rhs1 = cfactors[0];
+					rhs2 = cfactors[1];
+					factorspartial = " (" + afactors[0] + " + " + cfactors[0] + ")(" + afactors[1] + " + " + cfactors[1] + ")\n";
+				}
+			} 
+			//ax2-bx+k => (gx-c)(hx-d)
+			else if (b/gcf < 0 && c/gcf >= 0) {
+				if((afactors[0]*cfactors[1]) + (afactors[1]*cfactors[0]) == Math.abs(b/gcf) )
+				{
+					lhs1 = afactors[0];
+					lhs2 = afactors[1];
+					rhs1 = cfactors[0];
+					rhs2 = cfactors[1];
+					factorspartial = " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
+				}
+			} 
+			//x2-x-k	=> (x+c)(x-d) or (x-c)(x+d) todo!!!!! todo!!!!! todo!!!!! todo!!!!! todo!!!!!
+			else if (b/gcf < 0 && c/gcf < 0) {
+				if(((afactors[0]*cfactors[1]) + (afactors[1]*(-1)*cfactors[0])) == b/gcf )
+				{
+					lhs1 = afactors[0];
+					lhs2 = afactors[1];
+					rhs1 = cfactors[0];
+					rhs2 = cfactors[1];
+					factorspartial = " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
+				}
+			//x2+x-k => (x+c)(x-d) or (x-c)(x+d) todo!!!!! todo!!!!! todo!!!!! todo!!!!!
+			}
+			else if(b/gcf >= 0 && c/gcf < 0) {
+				if(((afactors[0]*cfactors[1]) + (afactors[1]*(-1)*cfactors[0])) == b/gcf )
+				{
+					lhs1 = afactors[0];
+					lhs2 = afactors[1];
+					rhs1 = cfactors[0];
+					rhs2 = cfactors[1];
+					factorspartial = " (" + afactors[0] + "x - " + cfactors[0] + ")(" + afactors[1] + "x + " + cfactors[1] + ")\n";
+				}
 			}
 		});
 
 	});
+	///TODOTODOTODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		document.getElementById('factoringsln1').innerHTML = '$\\implies $';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	alert(factorspartial);
 
-	var stringOut2 = stringquadratic(a / gcf, b / gcf, c / gcf,false);
-	if (gcf == 1) {
-		alert("already simplified");
-	} else {
-		$('#gcfcontain').show();
-		factoringpartial = stringOut + '<br\> $\\implies (' + gcf + ')($' + stringOut2 + '$)$';
-		document.getElementById('factoringAns').innerHTML = factoringpartial;
-		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-	}
-
-}
-
-=======
 }
 
 
-// rem to hide  $('#gcfcontain').show();
-
-function solvefactoring2() {
-	$('#factoring3container').show();
-	$('#factoring2container').hide();
-	
-
-	$.each(getFactors(Math.abs(a/gcf)), function() {
-		var afactors = this;
-		$.each(getFactors(Math.abs(c/gcf)), function() {
-			var cfactors = this;
-
-//do this
 
 
-
-			//4 cases -> 	1: both +, 		2: both -, 		3 :b+ and c-, 		4: b- and c +
-			if (b >= 0 && c >= 0) {
-				factorspartial += " (" + afactors[0] + " + " + cfactors[0] + ")(" + afactors[1] + " + " + cfactors[1] + ")\n";
-			} else if (b < 0 && c < 0) {
-				factorspartial += " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
-			} else if ((b < 0 && c >= 0) || (b >= 0 && c < 0)) {
-				factorspartial += " (" + afactors[0] + " + " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
-				factorspartial += " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " + " + cfactors[1] + ")\n";
-			}
-		});
-
-	});
-	alert(factorspartial);
-
-	var stringOut2 = stringquadratic(a / gcf, b / gcf, c / gcf,false);
-	if (gcf == 1) {
-		alert("already simplified");
-	} else {
-		$('#gcfcontain').show();
-		factoringpartial = stringOut + '<br\> $\\implies (' + gcf + ')($' + stringOut2 + '$)$';
-		document.getElementById('factoringAns').innerHTML = factoringpartial;
-		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-	}
-
-}
-
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
 function getGCF(numbers) {
 	var result = numbers[0];
 	for (var i = 1; i < numbers.length; i++) {
@@ -897,11 +875,8 @@ function stringquadratic(sa, sb, sc,zero) {
 	return '$' + sta + 'x^2' + stb + stc + '=0$';
 	else
 	return '$' + sta + 'x^2' + stb + stc + '$';
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> 4d98ecd8639bfeebe7a86e5a78bd7192b9e02769
+
 }
 
 onload = function() {
