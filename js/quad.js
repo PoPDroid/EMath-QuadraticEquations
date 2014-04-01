@@ -428,25 +428,26 @@ function checkfactoring2() {
 	var facc2 = $('#facc2').val();
 	var facs1 = $('#facs1').val();
 	var facs2 = $('#facs2').val();
-	var pa = Math.abs(a);
-	var pb = Math.abs(b);
-	var pc = Math.abs(c);
-	var sign = 1;
-	if (a < 0)
-		sign = -1;
-
-	if (gcf == sign * getGCF(new Array(pa, pb, pc)) && (gcf * newa) == a && (gcf * newb) == b && (gcf * newc) == c) {
-		solvefactoring1();
-	} else {
-		alert("wrong");
+	var result = true;
+	var mult1 = 1;
+	var mult2 = 1;
+	if(faca1*faca2 != a/gcf)result=false;
+	if(facc1*facc2 != c/gcf)result=false;
+	if(facs1=='minus')mult1=-1;
+	if(facs2=='minus')mult2=-1;
+	if(facc2*faca1*mult2 + facc1*faca2*mult2 != b/gcf)result=false;
+	if (result)solvefactoring2();
+	else{
+		alert(result);
 	}
-
 }
 
 function solvefactoring2() {
 	$('#factoring3container').show();
 	$('#factoring2container').hide();
 
+	var xcoeff1 = ""; 
+	var xcoeff2 = ""; 
 	$.each(getFactors(Math.abs(a/gcf)), function() {
 		var afactors = this;
 		$.each(getFactors(Math.abs(c/gcf)), function() {
@@ -461,8 +462,6 @@ function solvefactoring2() {
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					var xcoeff1 = ""; 
-					var xcoeff2 = ""; 
 					if(afactors[0] >1)xcoeff1=afactors[0];
 					if(afactors[1] >1)xcoeff2=afactors[1];
 					factorspartial = " (" + xcoeff1 + "x + " + cfactors[0] + ")(" + xcoeff2 + "x + " + cfactors[1] + ")\n";
@@ -478,8 +477,6 @@ function solvefactoring2() {
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					var xcoeff1 = ""; 
-					var xcoeff2 = ""; 
 					if(afactors[0] >1)xcoeff1=afactors[0];
 					if(afactors[1] >1)xcoeff2=afactors[1];
 					factorspartial = " (" + xcoeff1 + "x - " + cfactors[0] + ")(" + xcoeff2 + "x - " + cfactors[1] + ")\n";
@@ -495,8 +492,6 @@ function solvefactoring2() {
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					var xcoeff1 = ""; 
-					var xcoeff2 = ""; 
 					if(afactors[0] >1)xcoeff1=afactors[0];
 					if(afactors[1] >1)xcoeff2=afactors[1];
 					factorspartial = " (" + xcoeff1 + "x - " + cfactors[0] + ")(" + xcoeff2 + "x - " + cfactors[1] + ")\n";
@@ -512,8 +507,6 @@ function solvefactoring2() {
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					var xcoeff1 = ""; 
-					var xcoeff2 = ""; 
 					if(afactors[0] >1)xcoeff1=afactors[0];
 					if(afactors[1] >1)xcoeff2=afactors[1];
 					factorspartial = " (" + xcoeff1 + "x - " + cfactors[0] + ")(" + xcoeff2 + "x + " + cfactors[1] + ")\n";
@@ -527,9 +520,9 @@ function solvefactoring2() {
 		document.getElementById('factoringAns').innerHTML = factoringpartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	
-		document.getElementById('factoringsln1').innerHTML = '$factorspartial $';
+		document.getElementById('factoringsln1').innerHTML = 'Solution 1:<br\> $(' + xcoeff1 + 'x'+lhss +' ' +rhs1 + ') = 0$';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-		document.getElementById('factoringsln2').innerHTML = '$factorspartial $';
+		document.getElementById('factoringsln2').innerHTML = 'Solution 2:<br\> $(' + xcoeff2 + 'x'+rhss +' ' +rhs2 + ') = 0$';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	//alert(factorspartial);
 
