@@ -52,6 +52,8 @@ var lhs1;
 var lhs2;
 var rhs1;
 var rhs2;
+var lhss;
+var rhss;
 var gcf;
 var factorspartial = "";
 
@@ -76,21 +78,21 @@ $(document).ready(function() {
 			}
 		}
 		if ($(this).val() == "factoring") {
-
-			// we must get a into a positivE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			// we must simplify equation after generating or inserting it (removing common factor and bringing x to +ve)!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			//will not work if a is -ve
-
 			var hasfactors = false;
 
-			if (bsqrmfac >= 0) {
-				$("#factoring").show();
-				$('#factoring1container').show();
-			} else {
+			if (bsqrmfac < 0) {
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("no real roots");
 				$("#quadformula").show();
 				resetQuadFormula();
+			} else if(b<1 || c<1){
+				$("#method").val("quadformula").selectmenu('refresh');
+				alert("can not factor");
+				$("#quadformula").show();
+				resetQuadFormula();
+			}else{
+				$("#factoring").show();
+				$('#factoring1container').show();
 			}
 
 		}
@@ -296,6 +298,12 @@ function solvequadformula3() {
 	$('#quadformula4container').show();
 	quadformulapartial += '<br\><br\> <font size="5px" color="red">Step 3</font><br\>$b^2 - 4ac$<br\>$='+ bsqr + '-'+fac + '=' + bsqrmfac + '$';
 
+
+
+//include consider part of formula!????????????????????????????????????????!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
 		document.getElementById('quadformula4help').innerHTML = '$=\\sqrt{'+bsqrmfac+'} = $';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	}
@@ -418,6 +426,8 @@ function checkfactoring2() {
 	var facc1 = $('#facc1').val();
 	var faca2 = $('#faca2').val();
 	var facc2 = $('#facc2').val();
+	var facs1 = $('#facs1').val();
+	var facs2 = $('#facs2').val();
 	var pa = Math.abs(a);
 	var pb = Math.abs(b);
 	var pc = Math.abs(c);
@@ -445,53 +455,83 @@ function solvefactoring2() {
 			if (b/gcf >= 0 && c/gcf >= 0) {
 				if((afactors[0]*cfactors[1]) + (afactors[1]*cfactors[0])==b/gcf )
 				{
+					lhss = '+';
+					rhss = '+';
 					lhs1 = afactors[0];
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					factorspartial = " (" + afactors[0] + " + " + cfactors[0] + ")(" + afactors[1] + " + " + cfactors[1] + ")\n";
+					var xcoeff1 = ""; 
+					var xcoeff2 = ""; 
+					if(afactors[0] >1)xcoeff1=afactors[0];
+					if(afactors[1] >1)xcoeff2=afactors[1];
+					factorspartial = " (" + xcoeff1 + "x + " + cfactors[0] + ")(" + xcoeff2 + "x + " + cfactors[1] + ")\n";
 				}
 			} 
 			//ax2-bx+k => (gx-c)(hx-d)
 			else if (b/gcf < 0 && c/gcf >= 0) {
 				if((afactors[0]*cfactors[1]) + (afactors[1]*cfactors[0]) == Math.abs(b/gcf) )
 				{
+					lhss = '-';
+					rhss = '-';
 					lhs1 = afactors[0];
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					factorspartial = " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
+					var xcoeff1 = ""; 
+					var xcoeff2 = ""; 
+					if(afactors[0] >1)xcoeff1=afactors[0];
+					if(afactors[1] >1)xcoeff2=afactors[1];
+					factorspartial = " (" + xcoeff1 + "x - " + cfactors[0] + ")(" + xcoeff2 + "x - " + cfactors[1] + ")\n";
 				}
 			} 
-			//x2-x-k	=> (x+c)(x-d) or (x-c)(x+d) todo!!!!! todo!!!!! todo!!!!! todo!!!!! todo!!!!!
+			//x2-x-k	=> (x+c)(x-d) or (x-c)(x+d) 
 			else if (b/gcf < 0 && c/gcf < 0) {
 				if(((afactors[0]*cfactors[1]) + (afactors[1]*(-1)*cfactors[0])) == b/gcf )
 				{
+					lhss = '-';
+					rhss = '-';
 					lhs1 = afactors[0];
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					factorspartial = " (" + afactors[0] + " - " + cfactors[0] + ")(" + afactors[1] + " - " + cfactors[1] + ")\n";
+					var xcoeff1 = ""; 
+					var xcoeff2 = ""; 
+					if(afactors[0] >1)xcoeff1=afactors[0];
+					if(afactors[1] >1)xcoeff2=afactors[1];
+					factorspartial = " (" + xcoeff1 + "x - " + cfactors[0] + ")(" + xcoeff2 + "x - " + cfactors[1] + ")\n";
 				}
-			//x2+x-k => (x+c)(x-d) or (x-c)(x+d) todo!!!!! todo!!!!! todo!!!!! todo!!!!!
+			//x2+x-k => (x+c)(x-d) or (x-c)(x+d) 
 			}
 			else if(b/gcf >= 0 && c/gcf < 0) {
 				if(((afactors[0]*cfactors[1]) + (afactors[1]*(-1)*cfactors[0])) == b/gcf )
 				{
+					lhss = '-';
+					rhss = '+';
 					lhs1 = afactors[0];
 					lhs2 = afactors[1];
 					rhs1 = cfactors[0];
 					rhs2 = cfactors[1];
-					factorspartial = " (" + afactors[0] + "x - " + cfactors[0] + ")(" + afactors[1] + "x + " + cfactors[1] + ")\n";
+					var xcoeff1 = ""; 
+					var xcoeff2 = ""; 
+					if(afactors[0] >1)xcoeff1=afactors[0];
+					if(afactors[1] >1)xcoeff2=afactors[1];
+					factorspartial = " (" + xcoeff1 + "x - " + cfactors[0] + ")(" + xcoeff2 + "x + " + cfactors[1] + ")\n";
 				}
 			}
 		});
 
 	});
-	///TODOTODOTODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		document.getElementById('factoringsln1').innerHTML = '$\\implies $';
+	
+		factoringpartial += '<br\><br\><font size="5px" color="red">Step 2 </font><br\>$' +'('+gcf+')'+factorspartial +'=0$ <br\>';
+		document.getElementById('factoringAns').innerHTML = factoringpartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-	alert(factorspartial);
+	
+		document.getElementById('factoringsln1').innerHTML = '$factorspartial $';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+		document.getElementById('factoringsln2').innerHTML = '$factorspartial $';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+	//alert(factorspartial);
 
 }
 
