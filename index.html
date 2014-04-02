@@ -38,11 +38,13 @@
 						CHANGE TO RADIOOOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
 						also on + and - values input...place label indicating +....eg on dialog
 						
+						completing the square???http://www.mathportal.org/calculators/solving-equations/quadratic-equation-solver.php
 						
-					
+						
+						on change radio, do not show step 1 if 
 						
 									
-						<label for="method"><font size="5px" >Select Method</font></label>
+						<label for="method"><font >Select Method</font></label>
 						<select name="method" id="method"  data-native-menu="false">
 							<option value="quadformula">Using Quadratic Formula</option>
 							<option value="factoring">Solve By Factoring</option>
@@ -50,16 +52,18 @@
 						</select>
 					</div>
 
-					<font size="5px" color="red"><span id="myDiva"></span></font></p>
+					<font color="red"><span id="myDiva"></span></font></p>
 					<div id="quadformula" style="border:2px solid;background-image: url('images/math_plain.png')" >
 
 						<div style="border:2px solid;border-radius:25px;" >
 							<br/>
-							<font size="5px" ><span id="quadFormulaAns"></span></font></p>
+							<span id="quadFormulaAns"></span></p>
 						</div>
 						<br/>
-						<font size="5px"><span id="customquadformulaspan" >
+						<font><span id="customquadformulaspan" >
 								<div  id="quadformula1container"  >
+									<br/>
+									<br/>
 									STEP1: Find coefficients a , b and c
 									<br/>
 									of the equation in the form $ax^2+bx+c=0$
@@ -208,12 +212,11 @@
 					<div id="factoring" style="display:none;border:2px solid;background-image: url('images/math_plain.png')">
 						<div style="border:2px solid;border-radius:25px;" >
 							<br/>
-							<font size="5px" color="red"><span id="factoringAns"></span></font></p>
+							<span id="factoringAns"></span></p>
 						</div>
 						</span></font> 
 								<div  id="factoring1container"  >
 									STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
-									<br/>
 									<br/>
 									<br/>
 									<div  id="factoring1" style="display: table-row" >
@@ -252,6 +255,7 @@
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()" >Hint</a>
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring1()">Submit</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()">Skip</a>
 
 								</div>
 								<div  id="factoring2container"  style="display: none">
@@ -309,7 +313,7 @@
 									<div></div>
 
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint2</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint</a>
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
 								</div>
 								<div  id="factoring3container"  style="display: none">
@@ -345,15 +349,58 @@
 									</div>
 									<div></div>
 
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint2</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares1()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares1()">Submit</a>
 								</div>
 					</div>
 
 					<div id="squares" style="display:none">
 						<div  align="center" >
-							<font size="5px" color="red"><span id="squaresAns"></span></font></p>
+							<span id="squaresAns"></span></p>
+									<div  id="squares1container" >
+									STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
+									<br/>
+									<br/>
+									<div  id="factoring1" style="display: table-row" >
+
+										<div style="width:80px ;display: table-cell;" >
+											<input maxlength="4" size="4" type="number"  id="gcf" >
+										</div>
+
+										<div  style="display: table-cell;" >
+											$($
+										</div>
+										<div style="width:80px ;display: table-cell;" >
+											<input maxlength="4" size="4" type="number"  id="newa" >
+										</div>
+
+										<div  style="display: table-cell;" >
+											$x^2 $
+										</div>
+										<div style="width:80px ;display: table-cell;" >
+											<input maxlength="4" size="4" type="number"  id="newb" >
+										</div>
+
+										<div  style="display: table-cell;" >
+											$x$
+										</div>
+
+										<div style="width:80px ;display: table-cell;" >
+											<input maxlength="4" size="4" type="number"  id="newc" >
+										</div>
+										<div  style="display: table-cell;" >
+											$)=0$
+										</div>
+
+									</div>
+									<div></div>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring1()">Submit</a>
+
+								</div>
+
 						</div>
 					</div>
 
@@ -385,7 +432,7 @@
 
 				</fieldset>
 				<div id="customquadfunction" style="display:none">
-					<font size="5px"><span id="customquadfunctionSpan" >
+					<font><span id="customquadfunctionSpan" >
 							<div data-role="fieldcontain">
 								<div style="width:80px ;display: table-cell;" >
 									<input maxlength="4" size="4" type="number" id="acoeff">
