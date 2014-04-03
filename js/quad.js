@@ -1033,6 +1033,9 @@ function stringquadratic(sa, sb, sc,zero) {
 
 }
 
+$('#acoeff').bind("change", function() {
+  alert( "Handler for .change() called." );
+});
 MathJax.Hub.Queue(
     function () {
 			$("#newequationdiv").show();

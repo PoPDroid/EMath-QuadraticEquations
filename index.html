@@ -52,7 +52,6 @@
 						<font><span id="customquadformulaspan" >
 								<div  id="quadformula1container"  >
 									<br/>
-									<br/>
 									STEP1: Find coefficients a , b and c
 									<br/>
 									of the equation in the form $ax^2+bx+c=0$
@@ -86,6 +85,7 @@
 								</div>
 								<div  id="quadformula2container" style="display:none" >
 									<div ></div>
+									<br/>
 									STEP2: Consider $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$.
 									<br/>
 									Find: $-b,\,b^2,\,4ac,$ and $\,2a$
@@ -131,8 +131,8 @@
 
 								</div> <div ></div>
 								<div  id="quadformula3container" style="display:none" >
-									STEP3: Plug in the values for $b^2$ and $4ac$ into $b^2-4ac$
 									<br/>
+									STEP3: Plug in the values for $b^2$ and $4ac$ into $b^2-4ac$
 									<br/>
 									$\implies b^2-4ac=$
 									<br/>
@@ -151,8 +151,9 @@
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkformula3()">Submit</a>
 								</div> <div ></div>
 								<div  id="quadformula4container" style="display:none" >
-									STEP4: Find $\sqrt{b^2-4ac}$
 									<br/>
+									STEP4: Find $\sqrt{b^2-4ac}$
+									
 									<br/>
 									$\implies \sqrt{b^2-4ac}=$
 									<br/>
@@ -172,8 +173,8 @@
 
 								</div> <div ></div>
 								<div  id="quadformula5container" style="display:none" >
-									STEP5: Plug in answers into quadratic formula $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$
 									<br/>
+									STEP5: Plug in answers into quadratic formula $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$
 									<br/>
 									$\implies  \frac{-b \pm \sqrt{b^2-4ac}}{2a} = $
 									<br/>
@@ -205,8 +206,8 @@
 						</div>
 						</span></font>
 						<div  id="factoring1container"  >
+									<br/>
 							STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
-							<br/>
 							<br/>
 							<div  id="factoring1" style="display: table-row" >
 
@@ -248,8 +249,8 @@
 
 						</div>
 						<div  id="factoring2container"  style="display: none">
-							STEP2: Factor the simplified quadratic equation
 							<br/>
+							STEP2: Factor the simplified quadratic equation
 							<br/>
 							<div  id="factoring2" style="display: table-row" >
 
@@ -306,8 +307,8 @@
 							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
 						</div>
 						<div  id="factoring3container"  style="display: none">
+									<br/>
 							STEP3: Find x
-							<br/>
 							<br/>
 							<span id="factoringsln1"></span>
 							<div  id="factoring3a" style="display: table-row" >
@@ -353,6 +354,7 @@
 						</div>
 						<div  align="center" >
 							<div  id="squares1container" >
+									<br/>
 								STEP1: Find square root of coefficients of $a$ and $c$
 								<br/>
 								<div  id="squares1" style="display: table-row" >
@@ -384,60 +386,61 @@
 							</div>
 
 							<div  id="squares2container"  style="display: none">
-							STEP2: Factor the simplified quadratic equation
-							<br/>
-							<br/>
-							<div  id="squares2" style="display: table-row" >
+								<br/>
+								STEP2: Factor the simplified quadratic equation
+								<br/>
+								<div  id="squares2" style="display: table-row" >
 
-								<div  style="display: table-cell;" >
-									$($
-								</div>
-								<div style="width:80px ;display: table-cell;" >
-									<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqra1" >
+									<div  style="display: table-cell;" >
+										$($
+									</div>
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqra1" >
+									</div>
+
+									<div  style="display: table-cell;" >
+										$x + $
+									</div>
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqrc1" >
+									</div>
+
+									<div  style="display: table-cell;" >
+										$)($
+									</div>
+
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca2" >
+									</div>
+
+									<div  style="display: table-cell;" >
+										$x - $
+									</div>
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqrc2" >
+									</div>
+
+									<div  style="display: table-cell;" >
+										$)$
+									</div>
+									<div></div>
+
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares2()" >Hint</a>
+									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares2()">Submit</a>
 								</div>
 
-								<div  style="display: table-cell;" >
-									$x + $
-								</div>
-								<div style="width:80px ;display: table-cell;" >
-									<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqrc1" >
-								</div>
-
-								<div  style="display: table-cell;" >
-									$)($
-								</div>
-
-								<div style="width:80px ;display: table-cell;" >
-									<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca2" >
-								</div>
-
-								<div  style="display: table-cell;" >
-									$x - $
-								</div>
-								<div style="width:80px ;display: table-cell;" >
-									<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqrc2" >
-								</div>
-
-								<div  style="display: table-cell;" >
-									$)$
-								</div>
-								<div></div>
-
-								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
-								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares2()" >Hint</a>
-								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares2()">Submit</a>
 							</div>
-
 						</div>
+
+						<br/>
+						<div id="canvascontain" align="center" style="background-image: url('images/math_plain.png'); display:none">
+							<canvas id="canvas2" width="500" height="500" style="border:solid 1px #0000ff">
+
+							</canvas>
+						</div>
+
 					</div>
-
-					<br/>
-					<div id="canvascontain" align="center" style="background-image: url('images/math_plain.png'); display:none">
-						<canvas id="canvas2" width="500" height="500" style="border:solid 1px #0000ff">
-
-						</canvas>
-					</div>
-
 				</div>
 				<div id='newequationdiv' style="display:none">
 					<a href="#newDialog" data-role="button" data-theme="b" data-rel="dialog">New Equation</a>
@@ -469,6 +472,9 @@
 								<div style="display: table-cell;" >
 									$x^2$
 								</div>
+								<div style="display: table-cell;" >
+										<span id="sign1">+</span>
+								</div>
 
 								<div style="width:80px ;display: table-cell;" >
 									<input maxlength="4" size="4" type="number" id="bcoeff">
@@ -477,6 +483,9 @@
 									$x$
 								</div>
 
+								<div style="display: table-cell;" >
+										<span id="sign2">+</span>
+								</div>
 								<div style="width:80px ;display: table-cell;" >
 									<input maxlength="4" size="4" type="number" id="ccoeff">
 								</div>
