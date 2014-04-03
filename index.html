@@ -30,20 +30,10 @@
 
 				<div id="equation" style="display:none">
 
-					<div data-role="fieldcontain">			
-						
-						
-						
-						
-						CHANGE TO RADIOOOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+					<div data-role="fieldcontain">
+
 						also on + and - values input...place label indicating +....eg on dialog
-						
-						completing the square???http://www.mathportal.org/calculators/solving-equations/quadratic-equation-solver.php
-						
-						
-						on change radio, do not show step 1 if 
-						
-									
+
 						<label for="method"><font >Select Method</font></label>
 						<select name="method" id="method"  data-native-menu="false">
 							<option value="quadformula">Using Quadratic Formula</option>
@@ -59,7 +49,6 @@
 							<br/>
 							<span id="quadFormulaAns"></span></p>
 						</div>
-						<br/>
 						<font><span id="customquadformulaspan" >
 								<div  id="quadformula1container"  >
 									<br/>
@@ -145,7 +134,7 @@
 									STEP3: Plug in the values for $b^2$ and $4ac$ into $b^2-4ac$
 									<br/>
 									<br/>
-											$\implies b^2-4ac=$
+									$\implies b^2-4ac=$
 									<br/>
 									<div  id="quadformula3" style="display: table-row" >
 										<div  style="display: table-cell;" >
@@ -165,7 +154,7 @@
 									STEP4: Find $\sqrt{b^2-4ac}$
 									<br/>
 									<br/>
-											$\implies \sqrt{b^2-4ac}=$
+									$\implies \sqrt{b^2-4ac}=$
 									<br/>
 									<div  id="quadformula4" style="display: table-row" >
 										<div  style="display: table-cell;" >
@@ -186,7 +175,7 @@
 									STEP5: Plug in answers into quadratic formula $\frac{-b \pm \sqrt{b^2-4ac}}{2a}$
 									<br/>
 									<br/>
-											$\implies  \frac{-b \pm \sqrt{b^2-4ac}}{2a} = $
+									$\implies  \frac{-b \pm \sqrt{b^2-4ac}}{2a} = $
 									<br/>
 									<span id="quadformula5help"></span>
 									<div  id="quadformula5" style="display: table-row" >
@@ -214,192 +203,230 @@
 							<br/>
 							<span id="factoringAns"></span></p>
 						</div>
-						</span></font> 
-								<div  id="factoring1container"  >
-									STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
-									<br/>
-									<br/>
-									<div  id="factoring1" style="display: table-row" >
+						</span></font>
+						<div  id="factoring1container"  >
+							STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
+							<br/>
+							<br/>
+							<div  id="factoring1" style="display: table-row" >
 
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="gcf" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$($
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="newa" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x^2 $
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="newb" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x$
-										</div>
-
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="newc" >
-										</div>
-										<div  style="display: table-cell;" >
-											$)=0$
-										</div>
-
-									</div>
-									<div></div>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()" >Hint</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring1()">Submit</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()">Skip</a>
-
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" size="4" type="number"  id="gcf" >
 								</div>
-								<div  id="factoring2container"  style="display: none">
-									STEP2: Factor the simplified quadratic equation
-									<br/>
-									<br/>
-									<div  id="factoring2" style="display: table-row" >
 
-										<span id="gcf2"></span>
-										<div  style="display: table-cell;" >
-											$($
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca1" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x$
-										</div>
-										<div  style="display: table-cell;" >
-											<select id="facs1">
-												<option value="plus">+</option>
-												<option value="minus">-</option>
-											</select>
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" min="0" step="1" size="4" type="number"  id="facc1" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$)($
-										</div>
-
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca2" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x$
-										</div>
-										<div  style="display: table-cell;" >
-											<select id="facs2">
-												<option value="plus">+</option>
-												<option value="minus">-</option>
-											</select>
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" min="0" step="1" size="4" type="number"  id="facc2" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$)$
-										</div>
-									</div>
-									<div></div>
-
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
+								<div  style="display: table-cell;" >
+									$($
 								</div>
-								<div  id="factoring3container"  style="display: none">
-									STEP3: Find x
-									<br/>
-									<br/>
-										<span id="factoringsln1"></span>
-									<div  id="factoring3a" style="display: table-row" >
-
-										<div  style="display: table-cell;" >
-											$\implies x = $
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="factoringx1" >
-										</div>
-
-									</div>
-									<br/>
-									<div>or</div>
-									<br/>
-									<div></div>
-										<span id="factoringsln2"></span>
-										
-									<div  id="factoring3b" style="display: table-row" >
-
-										<div  style="display: table-cell;" >
-											$\implies x = $
-										</div>
-										<div  style="display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="factoringx2" >
-										</div>
-
-									</div>
-									<div></div>
-
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares1()" >Hint</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares1()">Submit</a>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" size="4" type="number"  id="newa" >
 								</div>
+
+								<div  style="display: table-cell;" >
+									$x^2 $
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" size="4" type="number"  id="newb" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$x$
+								</div>
+
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" size="4" type="number"  id="newc" >
+								</div>
+								<div  style="display: table-cell;" >
+									$)=0$
+								</div>
+
+							</div>
+							<div></div>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()" >Hint</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring1()">Submit</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()">Skip</a>
+
+						</div>
+						<div  id="factoring2container"  style="display: none">
+							STEP2: Factor the simplified quadratic equation
+							<br/>
+							<br/>
+							<div  id="factoring2" style="display: table-row" >
+
+								<span id="gcf2"></span>
+								<div  style="display: table-cell;" >
+									$($
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca1" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$x$
+								</div>
+								<div  style="display: table-cell;" >
+									<select id="facs1">
+										<option value="plus">+</option>
+										<option value="minus">-</option>
+									</select>
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="facc1" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$)($
+								</div>
+
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca2" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$x$
+								</div>
+								<div  style="display: table-cell;" >
+									<select id="facs2">
+										<option value="plus">+</option>
+										<option value="minus">-</option>
+									</select>
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="facc2" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$)$
+								</div>
+							</div>
+							<div></div>
+
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring2()" >Hint</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring2()">Submit</a>
+						</div>
+						<div  id="factoring3container"  style="display: none">
+							STEP3: Find x
+							<br/>
+							<br/>
+							<span id="factoringsln1"></span>
+							<div  id="factoring3a" style="display: table-row" >
+
+								<div  style="display: table-cell;" >
+									$\implies x = $
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" size="4" type="number"  id="factoringx1" >
+								</div>
+
+							</div>
+							<br/>
+							<div>
+								or
+							</div>
+							<br/>
+							<div></div>
+							<span id="factoringsln2"></span>
+
+							<div  id="factoring3b" style="display: table-row" >
+
+								<div  style="display: table-cell;" >
+									$\implies x = $
+								</div>
+								<div  style="display: table-cell;" >
+									<input maxlength="4" size="4" type="number"  id="factoringx2" >
+								</div>
+
+							</div>
+							<div></div>
+
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares1()" >Hint</a>
+							<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares1()">Submit</a>
+						</div>
 					</div>
 
-					<div id="squares" style="display:none">
-						<div  align="center" >
+					<div id="squares" style="display:none;border:2px solid;background-image: url('images/math_plain.png')">
+						<div style="border:2px solid;border-radius:25px;" >
+							<br/>
 							<span id="squaresAns"></span></p>
-									<div  id="squares1container" >
-									STEP1: Simplify equation by taking out greatest common factor and making $x^2$ coefficient positve
-									<br/>
-									<br/>
-									<div  id="factoring1" style="display: table-row" >
+						</div>
+						<div  align="center" >
+							<div  id="squares1container" >
+								STEP1: Find square root of coefficients of $a$ and $c$
+								<br/>
+								<div  id="squares1" style="display: table-row" >
 
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="gcf" >
-										</div>
+									<div  style="display: table-cell;" >
 
-										<div  style="display: table-cell;" >
-											$($
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="newa" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x^2 $
-										</div>
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="newb" >
-										</div>
-
-										<div  style="display: table-cell;" >
-											$x$
-										</div>
-
-										<div style="width:80px ;display: table-cell;" >
-											<input maxlength="4" size="4" type="number"  id="newc" >
-										</div>
-										<div  style="display: table-cell;" >
-											$)=0$
-										</div>
-
+										<span id="squaressln1"></span>
 									</div>
-									<div></div>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring()">Solve</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvefactoring1()" >Hint</a>
-									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checkfactoring1()">Submit</a>
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" size="4" type="number"  id="squaresx1" >
+									</div>
 
 								</div>
+								<div  id="squares1" style="display: table-row" >
+
+									<div  style="display: table-cell;" >
+										<span id="squaressln2"></span>
+									</div>
+
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" size="4" type="number"  id="squaresx2" >
+									</div>
+								</div>
+								<div></div>
+								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
+								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares1()" >Hint</a>
+								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares1()">Submit</a>
+
+							</div>
+
+							<div  id="squares2container"  style="display: none">
+							STEP2: Factor the simplified quadratic equation
+							<br/>
+							<br/>
+							<div  id="squares2" style="display: table-row" >
+
+								<div  style="display: table-cell;" >
+									$($
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqra1" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$x + $
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqrc1" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$)($
+								</div>
+
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca2" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$x - $
+								</div>
+								<div style="width:80px ;display: table-cell;" >
+									<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqrc2" >
+								</div>
+
+								<div  style="display: table-cell;" >
+									$)$
+								</div>
+								<div></div>
+
+								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
+								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares2()" >Hint</a>
+								<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares2()">Submit</a>
+							</div>
 
 						</div>
 					</div>
@@ -410,10 +437,11 @@
 
 						</canvas>
 					</div>
-					
+
 				</div>
-				
-				<a href="#newDialog" data-role="button" data-theme="b" data-rel="dialog">New Equation</a>
+				<div id='newequationdiv' style="display:none">
+					<a href="#newDialog" data-role="button" data-theme="b" data-rel="dialog">New Equation</a>
+				</div>
 			</div>
 		</div>
 
