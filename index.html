@@ -45,7 +45,7 @@
 
 						<div style="box-shadow:2px 2px 2px 2px #C0C0C0;	border-radius:22px;" >
 							<br/>
-							<span id="quadFormulaAns"></span></p>
+							<span id="quadFormulaAns"></span></p>	<br/>
 						</div>
 						<font><span id="customquadformulaspan" >
 								<div  id="quadformula1container"  >
@@ -200,7 +200,7 @@
 					<div id="factoring" style="display:none;box-shadow:2px 2px 2px 2px #C0C0C0;background-image: url('images/math_plain.png')">
 						<div style="box-shadow:2px 2px 2px 2px #C0C0C0;	border-radius:22px;" >
 							<br/>
-							<span id="factoringAns"></span></p>
+							<span id="factoringAns"></span></p>	<br/>
 						</div>
 						</span></font>
 						<div  id="factoring1container"  >
@@ -353,7 +353,7 @@
 					<div id="squares" style="display:none;box-shadow:2px 2px 2px 2px #C0C0C0;	background-image: url('images/math_plain.png')">
 						<div style="box-shadow:2px 2px 2px 2px #C0C0C0;	border-radius:22px;" >
 							<br/>
-							<span id="squaresAns"></span></p>
+							<span id="squaresAns"></span></p>	<br/>
 						</div>
 						<div  align="center" >
 							<div  id="squares1container" >
@@ -414,7 +414,7 @@
 									</div>
 
 									<div style="width:80px ;display: table-cell;" >
-										<input maxlength="4" min="0" step="1" size="4" type="number"  id="faca2" >
+										<input maxlength="4" min="0" step="1" size="4" type="number"  id="sqra2" >
 									</div>
 
 									<div  style="display: table-cell;" >
@@ -425,32 +425,37 @@
 									</div>
 
 									<div  style="display: table-cell;" >
-										$)$
+										$) = 0$
 									</div>
 									<div></div>
+								</div>
 									<br/>
-
+									<br/>
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares()">Solve</a>
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="solvesquares2()" >Hint</a>
 									<a href="index.html" data-role="button" data-inline="true" data-theme="b" onclick="checksquares2()">Submit</a>
-								</div>
+
 
 							</div>
 							<div  id="squares3container"  style="display: none">
 								<br/>
-								STEP3: Find x
+								STEP3: Find x (to 2 decimal pt)
 								<br/>
-								<span id="squaressln1"></span>
 								<div  id="squares3a" style="display: table-row" >
 
 									<div  style="display: table-cell;" >
 										$\implies x = $
 									</div>
+									<div  style="display: table-cell;" >
+										<span id="squaresslnhelp1"></span>
+									</div>
 									<div style="width:80px ;display: table-cell;" >
-										<input maxlength="4" size="4" type="number"  id="squareesx1" >
+										<input maxlength="4" size="4" type="number"  id="squaressln1" >
 									</div>
 
 								</div>
+								
+								<div></div>
 								<br/>
 								<div>
 									or
@@ -465,7 +470,10 @@
 										$\implies x = $
 									</div>
 									<div  style="display: table-cell;" >
-										<input maxlength="4" size="4" type="number"  id="squaresx2" >
+										<span id="squaresslnhelp2"></span>
+									</div>
+									<div style="width:80px ;display: table-cell;" >
+										<input maxlength="4" size="4" type="number"  id="squaressln2" >
 									</div>
 
 								</div>
@@ -478,13 +486,14 @@
 						</div>
 
 						<br/>
+
+					</div>
 						<div id="canvascontain" align="center" style="background-image: url('images/math_plain.png'); display:none">
 							<canvas id="canvas2" width="500" height="500" style="border:solid 1px #0000ff">
 
 							</canvas>
 						</div>
-
-					</div>
+						<br/>
 				</div>
 				<div id='newequationdiv' style="display:none">
 					<a href="#newDialog" data-role="button" data-theme="b" data-rel="dialog">New Equation</a>

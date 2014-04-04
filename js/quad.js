@@ -67,8 +67,6 @@ $(document).ready(function() {
 		$("#squares").hide();
 		if ($(this).val() == "quadformula") {
 			$("#quadformula").show();
-			resetQuadFormula();
-			$('#quadformula1container').show();
 		}
 		if ($(this).val() == "squares") {
 			if (checksquares()) {
@@ -77,7 +75,6 @@ $(document).ready(function() {
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("Not a difference of 2 squares!");
 				$("#quadformula").show();
-				//resetQuadFormula();
 			}
 		}
 		if ($(this).val() == "factoring") {
@@ -87,16 +84,13 @@ $(document).ready(function() {
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("no real roots");
 				$("#quadformula").show();
-				//resetQuadFormula();
-			} else if(!checkfactoring() || (b = 0 || c==0)){
+			} else if(!checkfactoring() || (b == 0 || c==0)){
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("can not factor");
 				$("#quadformula").show();
-				//resetQuadFormula();
 			}
 			else{
 				$("#factoring").show();
-				$('#factoring1container').show();
 			}
 
 		}
@@ -137,6 +131,12 @@ function plotoption() {
 		plotcustom();
 
 	}
+	resetSquare();
+	resetFactoring();
+	resetQuadFormula();
+	$("#quadformula").show();
+	$("#squares").hide();
+	$("#factoring").hide();
 }
 
 function plot() {
@@ -152,8 +152,6 @@ function plot() {
 	initialization();
 	draw();
 	$("#method").val("quadformula").selectmenu('refresh');
-	resetQuadFormula();
-	resetFactoring();
 }
 
 function plotcustom() {
@@ -170,8 +168,6 @@ function plotcustom() {
 	initialization();
 	draw();
 	$("#method").val("quadformula").selectmenu('refresh');
-	resetQuadFormula();
-	resetFactoring();
 }
 
 function resetQuadFormula() {
@@ -209,6 +205,26 @@ function resetFactoring() {
 	$('#facc1').val("");
 	$('#faca2').val("");
 	$('#facc2').val("");
+
+	//document.getElementById('quadFormulaAns').innerHTML = "";
+}
+
+function resetSquare() {
+	$('#squares1container').show();
+	$('#canvascontain').hide();
+	$('#squares2container').hide();
+	$('#squares3container').hide();
+	
+	
+	$('#squaressln1').val("");
+	$('#squaressln2').val("");
+	$('#sqra1').val("");
+	$('#sqrc1').val("");
+	$('#sqra2').val("");
+	$('#sqrc2').val("");
+	$('#squaresx1').val("");
+	$('#squaresx2').val("");
+	
 
 	//document.getElementById('quadFormulaAns').innerHTML = "";
 }
@@ -300,12 +316,6 @@ function solvequadformula3() {
 	$('#quadformula4container').show();
 	quadformulapartial += '<br\><br\> <font color="red">Step 3</font><br\>$b^2 - 4ac$<br\>$='+ bsqr + '-'+fac + '=' + bsqrmfac + '$';
 
-
-
-//include consider part of formula!????????????????????????????????????????!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
 		document.getElementById('quadformula4help').innerHTML = '$=\\sqrt{'+bsqrmfac+'} = $';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 	}
@@ -363,9 +373,9 @@ function solvequadformula5() {
 	$('#ans2').val(Math.round(quadformulasln2 * 100) / 100);
 	$('#quadformula5container').hide();
 	if(quadformulasln1!=quadformulasln2)
-	quadformulapartial += '<br\><br\><font color="red">Step 5 </font><br\> $\\implies  \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} $<br\>$= \\frac{'+-b+' \\pm '+sqrtbsqrfac+'}{'+ta+'} $<br\><br\>  $x=' + quadformulasln1 + '\\, or\\, x=' + quadformulasln2 + '$';
+	quadformulapartial += '<br\><br\><font color="red">Step 5 </font><br\> $x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} $<br\>$= \\frac{'+-b+' \\pm '+sqrtbsqrfac+'}{'+ta+'} $<br\><br\>  Ans1: $x=' + quadformulasln1 + '\\, $<br\><br\>or<br\><br\>  Ans2: $\\, x=' + quadformulasln2 + '$';
 	else
-	quadformulapartial += '<br\> $\\implies  \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} =$' + quadformulasln1;
+	quadformulapartial += '<br\> Ans: $ x =  \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a} =\\frac{'+-b+'}{'+ta+'}=$' + quadformulasln1;
 
 	}
 	document.getElementById('quadFormulaAns').innerHTML = quadformulapartial;
@@ -422,6 +432,7 @@ function checkfactoring1() {
 	var newa = $('#newa').val();
 	var newb = $('#newb').val();
 	var newc = $('#newc').val();
+	
 	gcf = $('#gcf').val();
 	var pa = Math.abs(a);
 	var pb = Math.abs(b);
@@ -479,6 +490,8 @@ function checkfactoring2() {
 	var facc2 = $('#facc2').val();
 	var facs1 = $('#facs1').val();
 	var facs2 = $('#facs2').val();
+	
+	
 	var result = true;
 	var mult1 = 1;
 	var mult2 = 1;
@@ -582,6 +595,9 @@ function solvefactoring2() {
 function checkfactoring3() {
 	var factoringx1 = $('#factoringx1').val();
 	var factoringx2 = $('#factoringx2').val();
+	
+	
+	
 	var result = true;
 	var mult1 = 1;
 	var mult2 = 1;
@@ -607,7 +623,7 @@ function solvefactoring3() {
 	if (rhss =='-') mult2=-1;	
 	factoringsln2= ((-1*mult2)*(rhs2/lhs2));
 	$('#factoring3container').hide();
-		factoringpartial += '<br\><br\><font  color="red">Step 3 </font><br\>$\\implies x = ' +factoringsln1+'$ or $x ='+ factoringsln2+ ' $  <br\>';
+		factoringpartial += '<br\><br\><font  color="red">Step 3 </font><br\>Ans1: $\\implies x = ' +factoringsln1+'$ <br\><br\>or<br\><br\> Ans2: $x ='+ factoringsln2+ ' $  <br\>';
 		document.getElementById('factoringAns').innerHTML = factoringpartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
@@ -645,6 +661,13 @@ solvesquares3();
 }
 
 function checksquares1() {
+	var sqrx1 = $('#squaresx1').val();
+	var sqrx2 = $('#squaresx2').val();
+	if (sqrx1==Math.sqrt(a) && sqrx2==Math.sqrt(-c)) {
+		solvesquares1();
+	} else {
+		alert("wrong");
+	}
 
 }
 
@@ -663,14 +686,30 @@ function solvesquares1() {
 
 function checksquares2() {
 
+	var sqra1 = $('#sqra1').val();
+	var sqrc1 = $('#sqrc1').val();
+	var sqra2 = $('#sqra2').val();
+	var sqrc2 = $('#sqrc2').val();
+	
+	
+	if (sqra1==Math.sqrt(a) &&sqra2==Math.sqrt(a) &&sqrc1==Math.sqrt(-c) && sqrc2==Math.sqrt(-c)) {
+		solvesquares2();
+	} else {
+		alert("wrong");
+	}
 }
 
 function solvesquares2() {
 		$('#squares2container').hide();
 		$('#squares3container').show();
-		squarespartial += '<font  color=\'red\' ><br\> Step 2</font><br\> $\\implies (\\sqrt{'+a+'}x^2 +  '+Math.sqrt(-c)+')(\\sqrt{'+a+'}x^2 -  '+Math.sqrt(-c)+')   =0$  <br\>';
+		squarespartial += '<font  color=\'red\' ><br\> Step 2</font><br\> $\\implies ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+')   =0$  <br\>';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+		document.getElementById('squaresslnhelp1').innerHTML = '$ \\frac{'+Math.sqrt(a)+'}{-'+Math.sqrt(-c)+'} =$';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+		document.getElementById('squaresslnhelp2').innerHTML = '$ \\frac{'+Math.sqrt(a)+'}{'+Math.sqrt(-c)+'} =$';
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
 
 	if (document.body.scrollHeight) { 
 	  window.scrollTo(0 , document.body.scrollHeight); 
@@ -679,13 +718,24 @@ function solvesquares2() {
 
 function checksquares3() {
 
+	var squaressln1in = $('#squaressln1').val();
+	var squaressln2in = $('#squaressln2').val();
+	
+	
+	var squaressln1 = Math.round(((-1)*(Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
+	var squaressln2 = Math.round(((Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
+	if (squaressln1in==squaressln1&& squaressln2in==squaressln2) {
+		solvesquares3();
+	} else {
+		alert("wrong");
+	}
 }
 
 function solvesquares3() {
 		$('#squares3container').hide();
 		var squaressln1 = Math.round(((-1)*(Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
 		var squaressln2 = Math.round(((Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
-		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\>$\\implies x = \\sqrt{'+a+'} / -\\sqrt{'+-c+'} = ' +squaressln1+'$ or $x == \\sqrt{'+a+'} / \\sqrt{'+-c+'} = '+ squaressln2+ ' $  <br\>';
+		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\> $  ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')=0$<br\> $\\implies$ Ans1: $x = \\frac{'+Math.sqrt(a)+'}{ -'+Math.sqrt(-c)+'} = ' +squaressln1+'$ <br\>  <br\> or <br\>  <br\> $('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+') = 0$<br\> $\\implies$ Ans2: $ x = \\frac{'+Math.sqrt(a)+'} {'+Math.sqrt(-c)+'} = '+ squaressln2+ ' $  <br\>';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
