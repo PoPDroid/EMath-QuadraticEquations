@@ -602,11 +602,12 @@ function checkfactoring3() {
 	var mult1 = 1;
 	var mult2 = 1;
 	if (lhss =='-') mult1=-1;	
-	if(factoringx1 != ((-1*mult1)*(rhs1/lhs1)))
+	if(factoringx1 != Math.round(((-1*mult1)*(rhs1/lhs1))* 100) / 100   );
 	result= false;
 	if (rhss =='-') mult2=-1;	
-	if(factoringx2 != ((-1*mult2)*(rhs2/lhs2)))
+	if(factoringx2 != Math.round(((-1*mult2)*(rhs2/lhs2))* 100) / 100   );
 	result= false;
+	
 	
 	if(result)
 	solvefactoring3() ;
@@ -705,9 +706,9 @@ function solvesquares2() {
 		squarespartial += '<font  color=\'red\' ><br\> Step 2</font><br\> $\\implies ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+')   =0$  <br\>';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-		document.getElementById('squaresslnhelp1').innerHTML = '$ \\frac{'+Math.sqrt(a)+'}{-'+Math.sqrt(-c)+'} =$';
+		document.getElementById('squaresslnhelp1').innerHTML = '$ \\frac{-'+Math.sqrt(-c)+'}{'+Math.sqrt(a)+'} =$';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-		document.getElementById('squaresslnhelp2').innerHTML = '$ \\frac{'+Math.sqrt(a)+'}{'+Math.sqrt(-c)+'} =$';
+		document.getElementById('squaresslnhelp2').innerHTML = '$ \\frac{'+Math.sqrt(-c)+'}{'+Math.sqrt(a)+'} =$';
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
 
@@ -722,8 +723,8 @@ function checksquares3() {
 	var squaressln2in = $('#squaressln2').val();
 	
 	
-	var squaressln1 = Math.round(((-1)*(Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
-	var squaressln2 = Math.round(((Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
+	var squaressln1 = Math.round(((-1)*(Math.sqrt(-c)/Math.sqrt(a))) * 100) / 100;
+	var squaressln2 = Math.round(((Math.sqrt(-c)/Math.sqrt(a))) * 100) / 100;
 	if (squaressln1in==squaressln1&& squaressln2in==squaressln2) {
 		solvesquares3();
 	} else {
@@ -733,9 +734,9 @@ function checksquares3() {
 
 function solvesquares3() {
 		$('#squares3container').hide();
-		var squaressln1 = Math.round(((-1)*(Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
-		var squaressln2 = Math.round(((Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
-		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\> $  ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')=0$<br\> $\\implies$ Ans1: $x = \\frac{'+Math.sqrt(a)+'}{ -'+Math.sqrt(-c)+'} = ' +squaressln1+'$ <br\>  <br\> or <br\>  <br\> $('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+') = 0$<br\> $\\implies$ Ans2: $ x = \\frac{'+Math.sqrt(a)+'} {'+Math.sqrt(-c)+'} = '+ squaressln2+ ' $  <br\>';
+		var squaressln1 = Math.round(((-1)*(Math.sqrt(-c)/Math.sqrt(a))) * 100) / 100;
+		var squaressln2 = Math.round(((Math.sqrt(-c)/Math.sqrt(a))) * 100) / 100;
+		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\> $  ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')=0$<br\> $\\implies$ Ans1: $x = \\frac{-'+Math.sqrt(-c)+'}{ '+Math.sqrt(a)+'} = ' +squaressln1+'$ <br\>  <br\> or <br\>  <br\> $('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+') = 0$<br\> $\\implies$ Ans2: $ x = \\frac{'+Math.sqrt(-c)+'} {'+Math.sqrt(a)+'} = '+ squaressln2+ ' $  <br\>';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
