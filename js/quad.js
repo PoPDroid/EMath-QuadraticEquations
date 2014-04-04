@@ -1141,7 +1141,6 @@ function stringquadratic(sa, sb, sc,zero) {
 
 }
 
-
 MathJax.Hub.Queue(
     function () {
 			$("#newequationdiv").show();
