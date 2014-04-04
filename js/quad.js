@@ -77,7 +77,7 @@ $(document).ready(function() {
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("Not a difference of 2 squares!");
 				$("#quadformula").show();
-				resetQuadFormula();
+				//resetQuadFormula();
 			}
 		}
 		if ($(this).val() == "factoring") {
@@ -87,12 +87,12 @@ $(document).ready(function() {
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("no real roots");
 				$("#quadformula").show();
-				resetQuadFormula();
+				//resetQuadFormula();
 			} else if(!checkfactoring() || (b = 0 || c==0)){
 				$("#method").val("quadformula").selectmenu('refresh');
 				alert("can not factor");
 				$("#quadformula").show();
-				resetQuadFormula();
+				//resetQuadFormula();
 			}
 			else{
 				$("#factoring").show();
@@ -620,22 +620,28 @@ function solvefactoring3() {
 
 function checksquares() {
 	var result = false;
-	if (b==0 && isSquare(a) && isSquare(c)){
+	if (b==0 && isSquare(a) && (c<0) && (a>0) && isSquare(Math.abs(c))){
 		result = true;
 	}
 	
 	if (result){
 		
 		var squarespartial1 = '$\\sqrt{a} =\\sqrt{'+a+'} = $';
-		document.getElementById('squaressln1').innerHTML = squarespartial1;
+		document.getElementById('squaresroot1').innerHTML = squarespartial1;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
-		var squarespartial2 = '$\\sqrt{c} =\\sqrt{'+c+'} = $';
-		document.getElementById('squaressln2').innerHTML = squarespartial2;
+		var squarespartial2 = '$\\sqrt{-c} =\\sqrt{'+-c+'} = $';
+		document.getElementById('squaresroot2').innerHTML = squarespartial2;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
 	}
 	return result;
+}
+
+function solvesquares() {
+solvesquares1();
+solvesquares2();
+solvesquares3();
 }
 
 function checksquares1() {
@@ -646,12 +652,47 @@ function solvesquares1() {
 		$('#squares1container').hide();
 		$('#squares2container').show();
 		var stringOut = stringquadratic(a, b, c,true);
-		quadformulapartial = '<font  color=\'red\' >Solve: ' +stringOut + '<br\><br\> Step 1</font><br\> $a=' + a + ',\\; b=' + b + ',\\; c=' + c + '$';
-	
-		squarespartial = '<font  color=\'red\' >Solve: ' +stringOut + '<br\><br\> Step 1</font><br\> $\\sqrt{a} =\\sqrt{'+a+'} = '+Math.sqrt(a)+'  $  <br\>$\\sqrt{c} =\\sqrt{'+c+'} = '+Math.sqrt(c)+'  $';
+		squarespartial = '<font  color=\'red\' >Solve: ' +stringOut + '<br\><br\> Step 1</font><br\> $\\sqrt{a} =\\sqrt{'+a+'} = '+Math.sqrt(a)+'  $  <br\>$\\sqrt{-c} =\\sqrt{'+-c+'} = '+Math.sqrt(-c)+'  $';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
+	if (document.body.scrollHeight) { 
+	  window.scrollTo(0 , document.body.scrollHeight); 
+	} 
+}
+
+function checksquares2() {
+
+}
+
+function solvesquares2() {
+		$('#squares2container').hide();
+		$('#squares3container').show();
+		squarespartial += '<font  color=\'red\' ><br\> Step 2</font><br\> $\\implies (\\sqrt{'+a+'}x^2 +  '+Math.sqrt(-c)+')(\\sqrt{'+a+'}x^2 -  '+Math.sqrt(-c)+')   =0$  <br\>';
+		document.getElementById('squaresAns').innerHTML = squarespartial;
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+	if (document.body.scrollHeight) { 
+	  window.scrollTo(0 , document.body.scrollHeight); 
+	} 
+}
+
+function checksquares3() {
+
+}
+
+function solvesquares3() {
+		$('#squares3container').hide();
+		var squaressln1 = Math.round(((-1)*(Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
+		var squaressln2 = Math.round(((Math.sqrt(a)/Math.sqrt(-c))) * 100) / 100;
+		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\>$\\implies x = \\sqrt{'+a+'} / -\\sqrt{'+-c+'} = ' +squaressln1+'$ or $x == \\sqrt{'+a+'} / \\sqrt{'+-c+'} = '+ squaressln2+ ' $  <br\>';
+		document.getElementById('squaresAns').innerHTML = squarespartial;
+		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+
+	if (document.body.scrollHeight) { 
+	  window.scrollTo(0 , document.body.scrollHeight); 
+	} 
+	$('#canvascontain').show();
 }
 
 function isSquare(number){
@@ -735,6 +776,22 @@ function initialization() {
 	w2 = canvas2.width;
 	h2 = canvas2.height;
 
+$('#bcoeff').on('input',function(e){
+ if($(this).val()<0 ) document.getElementById('sign1').innerHTML = '';
+ else   document.getElementById('sign1').innerHTML = ' + ';
+});
+$('#ccoeff').on('input',function(e){
+ if($(this).val()<0 ) document.getElementById('sign2').innerHTML = '';
+ else   document.getElementById('sign2').innerHTML = ' + ';
+});
+$('#newb').on('input',function(e){
+ if($(this).val()<0 ) document.getElementById('newsign1').innerHTML = '';
+ else   document.getElementById('newsign1').innerHTML = ' + ';
+});
+$('#newc').on('input',function(e){
+ if($(this).val()<0 ) document.getElementById('newsign2').innerHTML = '';
+ else   document.getElementById('newsign2').innerHTML = ' + ';
+});
 	ctx2.save();
 	ctx2.clearRect(0, 0, w2, h2);
 
@@ -1033,15 +1090,14 @@ function stringquadratic(sa, sb, sc,zero) {
 
 }
 
-$('#acoeff').bind("change", function() {
-  alert( "Handler for .change() called." );
-});
+
 MathJax.Hub.Queue(
     function () {
 			$("#newequationdiv").show();
 			$.mobile.loading('hide');
     }
-  );
+);
+  
 $(document).ready(function() {
 	initialization();
 	$.mobile.showPageLoadingMsg();
