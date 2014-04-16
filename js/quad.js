@@ -703,7 +703,7 @@ function checksquares2() {
 function solvesquares2() {
 		$('#squares2container').hide();
 		$('#squares3container').show();
-		squarespartial += '<font  color=\'red\' ><br\> Step 2</font><br\> $\\implies ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+')   =0$  <br\>';
+		squarespartial += '<font  color=\'red\' ><br\> Step 2</font><br\> $\\implies ('+Math.sqrt(a)+'x +  '+Math.sqrt(-c)+')('+Math.sqrt(a)+'x -  '+Math.sqrt(-c)+')   =0$  <br\>';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 		document.getElementById('squaresslnhelp1').innerHTML = '$ \\frac{-'+Math.sqrt(-c)+'}{'+Math.sqrt(a)+'} =$';
@@ -736,7 +736,7 @@ function solvesquares3() {
 		$('#squares3container').hide();
 		var squaressln1 = Math.round(((-1)*(Math.sqrt(-c)/Math.sqrt(a))) * 100) / 100;
 		var squaressln2 = Math.round(((Math.sqrt(-c)/Math.sqrt(a))) * 100) / 100;
-		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\> $  ('+Math.sqrt(a)+'x^2 +  '+Math.sqrt(-c)+')=0$<br\> $\\implies$ Ans1: $x = \\frac{-'+Math.sqrt(-c)+'}{ '+Math.sqrt(a)+'} = ' +squaressln1+'$ <br\>  <br\> or <br\>  <br\> $('+Math.sqrt(a)+'x^2 -  '+Math.sqrt(-c)+') = 0$<br\> $\\implies$ Ans2: $ x = \\frac{'+Math.sqrt(-c)+'} {'+Math.sqrt(a)+'} = '+ squaressln2+ ' $  <br\>';
+		squarespartial += '<br\><br\><font  color="red">Step 3 </font><br\> $  ('+Math.sqrt(a)+'x +  '+Math.sqrt(-c)+')=0$<br\> $\\implies$ Ans1: $x = \\frac{-'+Math.sqrt(-c)+'}{ '+Math.sqrt(a)+'} = ' +squaressln1+'$ <br\>  <br\> or <br\>  <br\> $('+Math.sqrt(a)+'x-  '+Math.sqrt(-c)+') = 0$<br\> $\\implies$ Ans2: $ x = \\frac{'+Math.sqrt(-c)+'} {'+Math.sqrt(a)+'} = '+ squaressln2+ ' $  <br\>';
 		document.getElementById('squaresAns').innerHTML = squarespartial;
 		MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
